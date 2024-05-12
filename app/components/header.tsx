@@ -1,8 +1,7 @@
 "use client";
 import React from "react";
-import { AppBar, Toolbar, Typography, Button, Box } from "@mui/material";
+import { AppBar, Toolbar, Typography, Button, Box, Link } from "@mui/material";
 import Image from "next/image";
-import Link from "next/link";
 
 interface HeaderProps {
   logoSrc: string;
@@ -29,23 +28,25 @@ const Header: React.FC<HeaderProps> = ({
             alignItems: "center",
             justifyContent: "space-between",
             padding: "1rem",
+            color: "white",
           }}
         >
           <Box>
-            <Link style={{ display: "flex", alignItems: "center" }} href={"#"}>
+            <Box sx={{ display: "flex", alignItems: "center" }}>
               <Image src={logoSrc} alt="Logo" width={60} height={60} />
               <Link
                 href="/"
-                color="inherit"
+                color="#fff"
                 style={{
                   marginLeft: "0.5rem",
                   fontWeight: "600",
                   fontSize: "35px",
+                  textDecoration: "none",
                 }}
               >
                 Nasa API
               </Link>
-            </Link>
+            </Box>
           </Box>
           <Box
             sx={{
@@ -56,12 +57,13 @@ const Header: React.FC<HeaderProps> = ({
               gap: "2rem",
               fontSize: "20px",
               fontWeight: "600",
+              textDecoration: "none",
             }}
           >
-            <Link color="inherit" href="/about">
+            <Link color="#fff" href="/about" sx={{ textDecoration: "none" }}>
               About
             </Link>
-            <Link color="inherit" href="/missions">
+            <Link color="#fff" href="/missions" sx={{ textDecoration: "none" }}>
               Missions
             </Link>
           </Box>

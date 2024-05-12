@@ -1,7 +1,7 @@
 "use client";
-import Header from "../components/header";
-import Footer from "../components/footer";
-import AboutComponent from "../components/about";
+import Header from "../app/components/header";
+import Footer from "../app/components/footer";
+import AboutComponent from "../app/components/about";
 
 export default function Home() {
   return (

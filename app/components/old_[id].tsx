@@ -1,8 +1,8 @@
 // pages/home.tsx
 "use client";
-import Header from "../../components/header";
-import Footer from "../../components/footer";
-import VideoDetail from "../../components/videoDetail";
+import Header from "./header";
+import Footer from "./footer";
+import VideoDetail from "../../pages/videos/[id]";
 
 const mockVideo = {
   title: "Apollo 11 Mission",

@@ -181,7 +181,10 @@ const Apollo11Videos: React.FC = () => {
                   </Typography>
                 </CardContent>
                 <CardActions>
-                  <Link href={`/videos/${slugify(video.title)}`} passHref>
+                  <Link
+                    href={`/videos/${encodeURIComponent(video.nasaId)}`}
+                    passHref
+                  >
                     <Button size="medium" component="a">
                       Learn More
                     </Button>
