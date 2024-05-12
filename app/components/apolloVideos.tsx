@@ -156,7 +156,13 @@ const Apollo11Videos: React.FC = () => {
         <Grid container spacing={4}>
           {sortedAndFilteredVideos.map((video, index) => (
             <Grid item xs={12} sm={6} md={4} key={index}>
-              <Card sx={{ maxWidth: 345, minHeight: 400 }}>
+              <Card
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  height: "100%",
+                }}
+              >
                 <CardMedia
                   component="img"
                   height="140"
