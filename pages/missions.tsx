@@ -1,8 +1,8 @@
 "use client";
-import Header from "../components/header";
-import Footer from "../components/footer";
-import Missions from "../components/missions";
-import DecadesOfDiscovery from "../components/decades";
+import Header from "../app/components/header";
+import Footer from "../app/components/footer";
+import Missions from "../app/components/missions";
+import DecadesOfDiscovery from "../app/components/decades";
 
 const missionsData = [
   {

@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { AppBar, Toolbar, Typography, Button, Box, Link } from "@mui/material";
+import { AppBar, Toolbar, Box, Link } from "@mui/material";
 import Image from "next/image";
 
 interface HeaderProps {

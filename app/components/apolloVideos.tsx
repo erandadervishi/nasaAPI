@@ -153,7 +153,7 @@ const Apollo11Videos: React.FC = () => {
           Loading data...
         </Typography>
       ) : (
-        <Grid container spacing={4}>
+        <Grid container spacing={4} id="api">
           {sortedAndFilteredVideos.map((video, index) => (
             <Grid item xs={12} sm={6} md={4} key={index}>
               <Card
@@ -185,7 +185,11 @@ const Apollo11Videos: React.FC = () => {
                     href={`/videos/${encodeURIComponent(video.nasaId)}`}
                     passHref
                   >
-                    <Button size="medium" component="a">
+                    <Button
+                      size="medium"
+                      component="a"
+                      sx={{ color: "#000", fontWeight: "600" }}
+                    >
                       Learn More
                     </Button>
                   </Link>
@@ -202,11 +206,10 @@ const Apollo11Videos: React.FC = () => {
             variant="contained"
             sx={{
               marginTop: "2rem",
-              color: "#fff",
-              background:
-                "radial-gradient(circle, rgba(246,99,7,0.5495448179271709) 20%, rgba(246,99,7,0.8072478991596639) 35%, rgba(252,250,248,0.7232142857142857) 45%, rgba(252,250,248,1) 98%)",
-              padding: " 1rem 4rem",
-              border: "1px solid transparent",
+              color: "#000",
+              background: "#fff",
+              padding: " 0.7rem 4rem",
+              border: "1px solid #000",
               fontWeight: "600",
               boxShadow: "0",
 

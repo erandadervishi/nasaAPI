@@ -1,6 +1,8 @@
+"use client";
 import { GetServerSideProps, NextPage } from "next";
-import axios from "axios";
-import { Container, Typography, Paper, Box } from "@mui/material";
+import { Container, Typography, Paper, Box, Grid } from "@mui/material";
+import Header from "@/app/components/header";
+import Footer from "@/app/components/footer";
 
 interface VideoProps {
   title: string;
@@ -22,20 +24,35 @@ const VideoDetailPage: NextPage<VideoDetailPageProps> = ({ video }) => {
   }
 
   return (
-    <Container maxWidth="md" sx={{ my: 4 }}>
-      <Paper elevation={3} sx={{ p: 2 }}>
-        <Typography variant="h4" gutterBottom>
-          {video.title}
-        </Typography>
-        <Box
-          component="img"
-          src={video.imageUrl}
-          alt={video.title}
-          sx={{ width: "100%", height: "auto", my: 2 }}
-        />
-        <Typography variant="body1">{video.description}</Typography>
-      </Paper>
-    </Container>
+    <>
+      <Header logoSrc="../nasa-logo.svg" isDashboard={false} />
+      <Container maxWidth="lg" sx={{ marginY: "2rem" }}>
+        <Paper elevation={3} sx={{ p: 2 }}>
+          <Grid container spacing={2}>
+            <Grid item xs={12} md={6} sx={{ margin: "auto 0" }}>
+              <Typography
+                variant="h4"
+                gutterBottom
+                sx={{ fontWeight: "600", marginBottom: "2rem" }}
+              >
+                {video.title}
+              </Typography>
+              <Typography variant="body1">{video.description}</Typography>
+            </Grid>
+
+            <Grid item xs={12} md={6}>
+              <Box
+                component="img"
+                src={video.imageUrl}
+                alt={video.title}
+                sx={{ width: "100%", height: "auto" }}
+              />
+            </Grid>
+          </Grid>
+        </Paper>
+      </Container>
+      <Footer logoSrc="../nasa-logo.svg" />
+    </>
   );
 };
 
@@ -59,12 +76,6 @@ interface Item {
   href: string;
   data: ItemData[];
   links: Link[];
-}
-
-interface VideoProps {
-  title: string;
-  description: string;
-  imageUrl: string;
 }
 
 export const getServerSideProps: GetServerSideProps = async (context) => {

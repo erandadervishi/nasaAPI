@@ -34,7 +34,7 @@ const Banner = () => {
           the Solar System and beyond.
         </Typography>
         <Link
-          href="#about"
+          href="#api"
           sx={{
             borderRadius: "0",
             backgroundColor: "rgba(255,255,255,0.2)",
