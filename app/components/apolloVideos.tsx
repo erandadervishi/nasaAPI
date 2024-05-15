@@ -100,17 +100,6 @@ const Apollo11Videos: React.FC = () => {
     setDisplayCount((prevCount) => prevCount + 9);
   };
 
-  function slugify(text: string): string {
-    return text
-      .toString()
-      .toLowerCase()
-      .replace(/\s+/g, "-") // Replace spaces with -
-      .replace(/[^\w\-]+/g, "") // Remove all non-word chars
-      .replace(/\-\-+/g, "-") // Replace multiple - with single -
-      .replace(/^-+/, "") // Trim - from start of text
-      .replace(/-+$/, ""); // Trim - from end of text
-  }
-
   return (
     <Container maxWidth="lg" sx={{ marginTop: "3rem", marginBottom: "3rem" }}>
       <Box display="flex" justifyContent="space-between" mb={2}>

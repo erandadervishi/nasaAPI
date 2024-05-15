@@ -49,7 +49,8 @@ const AboutComponent = () => {
               padding: " 0.5rem 3rem",
               border: "1px solid #000",
               "&:hover": {
-                color: "red",
+                color: "#000",
+                fontWeight: "600",
                 border: "1px solid #000",
                 background: "transparent",
                 boxShadow: "0",

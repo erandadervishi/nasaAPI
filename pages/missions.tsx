@@ -4,7 +4,14 @@ import Footer from "../app/components/footer";
 import Missions from "../app/components/missions";
 import DecadesOfDiscovery from "../app/components/decades";
 
-const missionsData = [
+type MissionData = {
+  title: string;
+  description: string;
+  imageUrl: string;
+  readMoreUrl: string;
+};
+
+const missionsData: MissionData[] = [
   {
     title: "The Science of Earth",
     description:

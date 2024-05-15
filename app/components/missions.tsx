@@ -25,8 +25,12 @@ interface MissionsProps {
 const Missions: React.FC<MissionsProps> = ({ missions }) => {
   return (
     <Container>
-      <Typography variant="h5" component="h2" sx={{ marginY: "1rem" }}>
-        Future Missions
+      <Typography
+        variant="h5"
+        component="h2"
+        sx={{ marginY: "1rem", fontWeight: "600" }}
+      >
+        Future Missions :
       </Typography>
       <Grid container spacing={4}>
         {missions.map((mission, index) => (

@@ -40,6 +40,13 @@ const DecadesOfDiscovery: React.FC = () => {
                 color: "#000",
                 border: "2px solid #000",
                 fontWeight: "600",
+                "&:hover": {
+                  color: "#000",
+                  fontWeight: "600",
+                  border: "2px solid #000",
+                  background: "transparent",
+                  boxShadow: "0",
+                },
               }}
             >
               Learn About Project Mercury
