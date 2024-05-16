@@ -16,7 +16,12 @@ import {
   FormControl,
   InputLabel,
   Box,
+  IconButton,
 } from "@mui/material";
+import FavoriteIcon from "@mui/icons-material/Favorite";
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import { useAppDispatch, useAppSelector } from "../store";
+import { toggleFavorite } from "../store/wishList";
 import { SelectChangeEvent } from "@mui/material/Select";
 
 interface VideoItem {
@@ -35,6 +40,11 @@ const Apollo11Videos: React.FC = () => {
   const [selectedKeyword, setSelectedKeyword] = useState<string>("");
   const [sortOrder, setSortOrder] = useState<string>("");
   const [displayCount, setDisplayCount] = useState<number>(9);
+
+  const dispatch = useAppDispatch();
+  const favoriteVideos = useAppSelector(
+    (state) => state.favorites.favoriteVideos
+  );
 
   useEffect(() => {
     const fetchData = async () => {
@@ -98,6 +108,14 @@ const Apollo11Videos: React.FC = () => {
 
   const handleLoadMore = () => {
     setDisplayCount((prevCount) => prevCount + 9);
+  };
+
+  const handleToggleFavorite = (video: VideoItem) => {
+    dispatch(toggleFavorite(video));
+  };
+
+  const isFavorite = (nasaId: string) => {
+    return favoriteVideos.some((video) => video.nasaId === nasaId);
   };
 
   return (
@@ -170,6 +188,16 @@ const Apollo11Videos: React.FC = () => {
                   </Typography>
                 </CardContent>
                 <CardActions>
+                  <IconButton
+                    onClick={() => handleToggleFavorite(video)}
+                    sx={{ color: "#d9130f" }}
+                  >
+                    {isFavorite(video.nasaId) ? (
+                      <FavoriteIcon />
+                    ) : (
+                      <FavoriteBorderIcon />
+                    )}
+                  </IconButton>
                   <Link
                     href={`/videos/${encodeURIComponent(video.nasaId)}`}
                     passHref
