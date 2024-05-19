@@ -7,6 +7,9 @@ import {
   CardMedia,
   CardContent,
   Typography,
+  Link,
+  Button,
+  Box,
 } from "@mui/material";
 import { useAppSelector } from "../app/store";
 
@@ -43,6 +46,26 @@ const Favorites: React.FC = () => {
                     : video.description}
                 </Typography>
               </CardContent>
+              <Box>
+                <Link href={`/videos/${encodeURIComponent(video.nasaId)}`}>
+                  <Button
+                    size="medium"
+                    component="a"
+                    sx={{ color: "#000", fontWeight: "600" }}
+                  >
+                    Learn More
+                  </Button>
+                </Link>
+                <Link href="/">
+                  <Button
+                    size="medium"
+                    component="a"
+                    sx={{ color: "#000", fontWeight: "600" }}
+                  >
+                    Home
+                  </Button>
+                </Link>
+              </Box>
             </Card>
           </Grid>
         ))}

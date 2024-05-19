@@ -1,14 +1,12 @@
 "use client";
-import { Box, Grid, Typography, Button } from "@mui/material";
+import { Box, Grid, Typography, Button, Link, Container } from "@mui/material";
 
 const AboutComponent = () => {
   return (
-    <Box
+    <Container
       sx={{
-        width: "100%",
         bgcolor: "#fff",
-        padding: "4rem 8rem",
-        margin: "1rem",
+        padding: "4rem 0",
       }}
     >
       <Grid container spacing={7} alignItems="center">
@@ -39,29 +37,57 @@ const AboutComponent = () => {
             technologies that will enable future exploration and benefit life on
             Earth.
           </Typography>
-          <Button
-            variant="contained"
+          <Box
             sx={{
-              mr: 2,
-              color: "#000",
-              background: "transparent",
-              borderRadius: "0",
-              padding: " 0.5rem 3rem",
-              border: "1px solid #000",
-              "&:hover": {
-                color: "#000",
-                fontWeight: "600",
-                border: "1px solid #000",
-                background: "transparent",
-                boxShadow: "0",
-              },
+              display: "flex",
+              alignItems: "center",
+              gap: "1rem",
             }}
           >
-            NASA Centers and Facilities
-          </Button>
+            <Button
+              variant="contained"
+              sx={{
+                color: "#000",
+                background: "transparent",
+                borderRadius: "0",
+                padding: " 0.5rem 3rem",
+                border: "1px solid #000",
+                "&:hover": {
+                  color: "#000",
+                  fontWeight: "600",
+                  border: "1px solid #000",
+                  background: "transparent",
+                  boxShadow: "0",
+                },
+              }}
+            >
+              NASA Centers
+            </Button>
+            <Link href="/">
+              <Button
+                variant="contained"
+                sx={{
+                  color: "#000",
+                  background: "transparent",
+                  borderRadius: "0",
+                  padding: " 0.5rem 3rem",
+                  border: "1px solid #000",
+                  "&:hover": {
+                    color: "#000",
+                    fontWeight: "600",
+                    border: "1px solid #000",
+                    background: "transparent",
+                    boxShadow: "0",
+                  },
+                }}
+              >
+                HomePage
+              </Button>
+            </Link>
+          </Box>
         </Grid>
       </Grid>
-    </Box>
+    </Container>
   );
 };
 

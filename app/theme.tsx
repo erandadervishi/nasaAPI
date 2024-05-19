@@ -15,6 +15,9 @@ const theme = createTheme({
       default: "#fff",
     },
   },
+  typography: {
+    fontFamily: "'Roboto', sans-serif",
+  },
 });
 
 export default theme;

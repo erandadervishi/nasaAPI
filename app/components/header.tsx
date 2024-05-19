@@ -101,8 +101,8 @@ const Header: React.FC<HeaderProps> = ({ logoSrc, isDashboard }) => {
               >
                 Missions
               </Link>
-              <IconButton sx={{ color: "#d9130f" }} href="/favorites">
-                <Badge badgeContent={favoriteCount} sx={{ color: "#d9130f" }}>
+              <IconButton sx={{ color: "#fff" }} href="/favorites">
+                <Badge badgeContent={favoriteCount} sx={{ color: "#fff" }}>
                   <FavoriteIcon />
                 </Badge>
               </IconButton>

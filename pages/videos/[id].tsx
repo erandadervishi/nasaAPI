@@ -1,8 +1,6 @@
 "use client";
 import { GetServerSideProps, NextPage } from "next";
 import { Container, Typography, Paper, Box, Grid } from "@mui/material";
-import Header from "@/app/components/header";
-import Footer from "@/app/components/footer";
 
 interface VideoProps {
   title: string;
@@ -25,7 +23,6 @@ const VideoDetailPage: NextPage<VideoDetailPageProps> = ({ video }) => {
 
   return (
     <>
-      <Header logoSrc="../nasa-logo.svg" isDashboard={false} />
       <Container maxWidth="lg" sx={{ marginY: "2rem" }}>
         <Paper elevation={3} sx={{ p: 2 }}>
           <Grid container spacing={2}>
@@ -51,7 +48,6 @@ const VideoDetailPage: NextPage<VideoDetailPageProps> = ({ video }) => {
           </Grid>
         </Paper>
       </Container>
-      <Footer logoSrc="../nasa-logo.svg" />
     </>
   );
 };

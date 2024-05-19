@@ -1,10 +1,12 @@
+"use client";
 import React, { useEffect } from "react";
 import { AppProps } from "next/app";
 import CssBaseline from "@mui/material/CssBaseline";
 import { Provider } from "react-redux";
-import store from "../app/store";
 import Header from "../app/components/header";
 import Footer from "../app/components/footer";
+import { PersistGate } from "redux-persist/integration/react";
+import { store, persistor } from "../app/store";
 
 const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
   useEffect(() => {
@@ -16,8 +18,12 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
 
   return (
     <Provider store={store}>
-      <CssBaseline />
-      <Component {...pageProps} />
+      <PersistGate loading={null} persistor={persistor}>
+        <Header logoSrc="../nasa-logo.svg" isDashboard={false} />
+        <CssBaseline />
+        <Component {...pageProps} />
+        <Footer logoSrc="../nasa-logo.svg" />
+      </PersistGate>
     </Provider>
   );
 };
