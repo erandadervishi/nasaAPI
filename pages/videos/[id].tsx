@@ -1,6 +1,14 @@
 "use client";
 import { GetServerSideProps, NextPage } from "next";
-import { Container, Typography, Paper, Box, Grid } from "@mui/material";
+import {
+  Container,
+  Typography,
+  Paper,
+  Box,
+  Grid,
+  Link,
+  Button,
+} from "@mui/material";
 
 interface VideoProps {
   title: string;
@@ -47,6 +55,29 @@ const VideoDetailPage: NextPage<VideoDetailPageProps> = ({ video }) => {
             </Grid>
           </Grid>
         </Paper>
+        <Link href="/">
+          <Button
+            variant="contained"
+            sx={{
+              color: "#000",
+              background: "transparent",
+              borderRadius: "0",
+              margin: "2rem auto",
+              contentAlign: "center",
+              padding: " 0.5rem 3rem",
+              border: "1px solid #000",
+              "&:hover": {
+                color: "#000",
+                fontWeight: "600",
+                border: "1px solid #000",
+                background: "transparent",
+                boxShadow: "0",
+              },
+            }}
+          >
+            HomePage
+          </Button>
+        </Link>
       </Container>
     </>
   );
@@ -75,10 +106,9 @@ interface Item {
 }
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  const id = context.params?.id; // Use optional chaining in case params is undefined
+  const id = context.params?.id;
   if (typeof id !== "string") {
-    // Check if id is a string
-    return { notFound: true }; // Return notFound if id is not a single string
+    return { notFound: true };
   }
 
   const decodedId = decodeURIComponent(id);
@@ -94,12 +124,12 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
       return { notFound: true };
     }
 
-    const item: Item = data.collection.items[0]; // Assuming data is fetched as before
+    const item: Item = data.collection.items[0];
     const video: VideoProps = {
       title: item.data[0].title,
       description: item.data[0].description,
       imageUrl:
-        item.links.find((link: Link) => link.rel === "preview")?.href ?? "", // Use optional chaining and nullish coalescing
+        item.links.find((link: Link) => link.rel === "preview")?.href ?? "",
     };
 
     return { props: { video } };

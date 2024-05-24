@@ -40,6 +40,7 @@ const Apollo11Videos: React.FC = () => {
   const [selectedKeyword, setSelectedKeyword] = useState<string>("");
   const [sortOrder, setSortOrder] = useState<string>("");
   const [displayCount, setDisplayCount] = useState<number>(9);
+  const [hasMore, setHasMore] = useState<boolean>(true);
 
   const dispatch = useAppDispatch();
   const favoriteVideos = useAppSelector(
@@ -107,7 +108,11 @@ const Apollo11Videos: React.FC = () => {
   }, [selectedKeyword, sortOrder, displayCount, videos]);
 
   const handleLoadMore = () => {
-    setDisplayCount((prevCount) => prevCount + 9);
+    if (sortedAndFilteredVideos.length < videos.length) {
+      setDisplayCount((prevCount) => prevCount + 9);
+    } else {
+      setHasMore(false);
+    }
   };
 
   const handleToggleFavorite = (video: VideoItem) => {
@@ -178,14 +183,24 @@ const Apollo11Videos: React.FC = () => {
                   sx={{ objectFit: "cover" }}
                 />
                 <CardContent>
-                  <Typography gutterBottom variant="h5" component="div">
-                    {video.title}
-                  </Typography>
-                  <Typography variant="body2" color="text.secondary">
-                    {video.description.length > 150
-                      ? `${video.description.substring(0, 150)}...`
-                      : video.description}
-                  </Typography>
+                  <Link
+                    href={`/videos/${encodeURIComponent(video.nasaId)}`}
+                    passHref
+                  >
+                    <Typography gutterBottom variant="h5" component="div">
+                      {video.title}
+                    </Typography>
+                  </Link>
+                  <Link
+                    href={`/videos/${encodeURIComponent(video.nasaId)}`}
+                    passHref
+                  >
+                    <Typography variant="body2" color="text.secondary">
+                      {video.description.length > 150
+                        ? `${video.description.substring(0, 150)}...`
+                        : video.description}
+                    </Typography>
+                  </Link>
                 </CardContent>
                 <CardActions>
                   <IconButton
@@ -216,7 +231,7 @@ const Apollo11Videos: React.FC = () => {
           ))}
         </Grid>
       )}
-      {sortedAndFilteredVideos.length < videos.length && (
+      {hasMore && sortedAndFilteredVideos.length < videos.length && (
         <Box sx={{ textAlign: "center" }}>
           <Button
             onClick={handleLoadMore}
